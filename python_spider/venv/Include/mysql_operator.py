@@ -37,9 +37,3 @@ def executeSql(conn, sql):
         if conn is not None:
             conn.close()
 
-
-i = executeSql(None, "INSERT INTO refund (refund_id, refund_name) VALUES (2, 'test');")
-print(i)
-
-data = select(None, "select * from refund")
-print(data)

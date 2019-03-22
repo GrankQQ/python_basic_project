@@ -10,18 +10,20 @@ import csv
 # 下面是利用 selenium 抓取html页面的代码
 
 # 初始化函数
-def initSpider():
+def initSpider(url):
     driver = webdriver.Chrome(executable_path=r"C:\Program Files\Python\Python37\Scripts\chromedriver.exe")
-    driver.get("http://fund.eastmoney.com/f10/jjjz_519961.html")  # 要抓取的网页地址
+    driver.get(url)  # 要抓取的网页地址
 
-    # 找到"下一页"按钮,就可以得到它前面的一个label,就是总页数
-    getPage_text = driver.find_element_by_id("pagebar").find_element_by_xpath(
-        "div[@class='pagebtns']/label[text()='下一页']/preceding-sibling::label[1]").get_attribute("innerHTML")
-    # 得到总共有多少页
-    total_page = int("".join(filter(str.isdigit, getPage_text)))
+    return driver
 
-    # 返回
-    return (driver, total_page)
+    # # 找到"下一页"按钮,就可以得到它前面的一个label,就是总页数
+    # getPage_text = driver.find_element_by_id("pagebar").find_element_by_xpath(
+    #     "div[@class='pagebtns']/label[text()='下一页']/preceding-sibling::label[1]").get_attribute("innerHTML")
+    # # 得到总共有多少页
+    # total_page = int("".join(filter(str.isdigit, getPage_text)))
+    #
+    # # 返回
+    # return (driver, total_page)
 
 
 # 获取html内容
@@ -47,16 +49,10 @@ def getData(myrange, driver, lock):
         bodys = driver.find_element_by_id("jztable").find_element_by_tag_name("tbody")
         trs = bodys.find_elements_by_tag_name("tr")
 
-        # 以添加的形式写入csv，跟处理txt文件一样，设定关键字"a"，表追加
-        csvFile = open("e:/htmls/details/instance.csv", "a")
-
-        # 新建对象writer
-        writer = csv.writer(csvFile)
-
         for tr in trs:
             tds = tr.find_elements_by_tag_name("td")
             row = [tds[0].text.strip(),tds[1].text.strip(),tds[2].text.strip(),tds[3].text.strip(),tds[4].text.strip(),tds[5].text.strip(),tds[6].text.strip()]
-            writer.writerow(row)
+            write("e:/htmls/details/instance.csv", row)
 
         # 保存到项目中
         # with open("e:/htmls/details/{0}.txt".format(x), 'wb') as f:
@@ -87,7 +83,4 @@ def beginSpider():
 
     print("抓取完成")
 
-
-# #################上面代码就完成了 抓取远程网站html内容并保存到项目中的 过程
-
-beginSpider();
+# beginSpider();
