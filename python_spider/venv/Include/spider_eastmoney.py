@@ -112,12 +112,15 @@ def get_information(driver, a):
     WebDriverWait(driver, 100).until(
         lambda driver: driver.find_element_by_xpath("//*[@class='fund_item quotationItem_DataTable popTab']") != None)
 
-    
-    more = driver.find_element_by_xpath(
-        "//*[@class='fund_item quotationItem_DataTable popTab']").find_element_by_class_name(
-        "item_more").find_element_by_tag_name("a")
+    xpaths = driver.find_elements_by_xpath(
+        "//*[@class='fund_item quotationItem_DataTable popTab']")
 
-    get_details(driver, more)
+    if (xpaths != None):
+        for xpath in xpaths:
+            if (xpath.text.find("净值") > -1):
+                more = xpath.find_element_by_class_name(
+                    "item_more").find_element_by_tag_name("a")
+                get_details(driver, more)
 
 
 def get_details(driver, a):
@@ -134,42 +137,57 @@ def get_details(driver, a):
     refund_id = title[title.find("(") + 1: title.find(")")]
 
     rate_p = driver.find_element_by_class_name("col-right").find_elements_by_tag_name("p")
-    rate_b = rate_p[len(rate_p) -1].find_elements_by_tag_name("b")
+    rate_b = rate_p[len(rate_p) - 1].find_elements_by_tag_name("b")
     rate = 0
-    if(rate_b != None):
+    if (rate_b != None):
         for rate_fee in rate_b:
             rate_text = rate_fee.text
-            if(rate_text.find("%") > 0):
+            if (rate_text.find("%") > 0):
                 rate = rate_text[0: rate_text.find("%")]
-
-
-
-    tonum = driver.find_element_by_id("pagebar").find_element_by_xpath(
-        "div[@class='pagebtns']/input[@class='pnum']")  # 得到 页码文本框
-    jumpbtn = driver.find_element_by_id("pagebar").find_element_by_xpath(
-        "div[@class='pagebtns']/input[@class='pgo']")  # 跳转到按钮
-
-    tonum.clear()  # 第x页 输入框
-    tonum.send_keys(str(x))  # 去第x页
-    jumpbtn.click()  # 点击按钮
+                break
 
     mysql_operator.executeSql(None, "INSERT INTO refund (refund_id, refund_name, buy_rate) VALUES ( " + str(int(
         refund_id)) + ", '" + refund_name + "', " + str(rate) + ");")
 
-    # 解析得到的html
-    bodys = driver.find_element_by_id("jztable").find_element_by_tag_name("tbody")
-    trs = bodys.find_elements_by_tag_name("tr")
+    # 找到"下一页"按钮,就可以得到它前面的一个label,就是总页数
+    getPage_text = driver.find_element_by_id("pagebar").find_element_by_xpath(
+        "div[@class='pagebtns']/label[text()='下一页']/preceding-sibling::label[1]").get_attribute("innerHTML")
+    # 得到总共有多少页
+    total_page = int("".join(filter(str.isdigit, getPage_text)))
 
-    for tr in trs:
-        tds = tr.find_elements_by_tag_name("td")
-        print([tds[0].text.strip(), tds[1].text.strip(), tds[2].text.strip(), tds[3].text.strip(),
-               tds[4].text.strip(), tds[5].text.strip(), tds[6].text.strip()])
-        mysql_operator.executeSql(None,
-                                  "INSERT INTO refund_details (refund_id, value_date, pure_value, accumulate_value, day_increase_rate, buy_status, sell_status, dividend_distribution) VALUES( "
-                                  + refund_id + ",'" + tds[0].text.strip() + "', " + tds[1].text.strip() + ", " + tds[
-                                      2].text.strip() + ", " + tds[3].text.strip()[0: tds[3].text.strip().find("%")]
-                                  + ",'" + tds[4].text.strip() + "','" + tds[5].text.strip() + "',' "
-                                  + tds[6].text.strip() + "')")
+    for x in range(1, int(total_page) + 1):
+
+        tonum = driver.find_element_by_id("pagebar").find_element_by_xpath(
+            "div[@class='pagebtns']/input[@class='pnum']")  # 得到 页码文本框
+        jumpbtn = driver.find_element_by_id("pagebar").find_element_by_xpath(
+            "div[@class='pagebtns']/input[@class='pgo']")  # 跳转到按钮
+
+        tonum.clear()  # 第x页 输入框
+        tonum.send_keys(str(x))  # 去第x页
+        jumpbtn.click()  # 点击按钮
+
+        # 抓取
+        WebDriverWait(driver, 2000).until(lambda driver: driver.find_element_by_id("pagebar").find_element_by_xpath(
+            "div[@class='pagebtns']/label[@value={0} and @class='cur']".format(x)) != None)
+
+        print(x)
+
+        # 解析得到的html
+        bodys = driver.find_element_by_id("jztable").find_element_by_tag_name("tbody")
+        trs = bodys.find_elements_by_tag_name("tr")
+
+        for tr in trs:
+            tds = tr.find_elements_by_tag_name("td")
+            print([tds[0].text.strip(), tds[1].text.strip(), tds[2].text.strip(), tds[3].text.strip(),
+                   tds[4].text.strip(), tds[5].text.strip(), tds[6].text.strip()])
+
+            if(tds[3].text.trip() != "--"):
+                mysql_operator.executeSql(None,
+                                          "INSERT INTO refund_details (refund_id, value_date, pure_value, accumulate_value, day_increase_rate, buy_status, sell_status, dividend_distribution) VALUES( "
+                                          + refund_id + ",'" + tds[0].text.strip() + "', " + tds[1].text.strip() + ", " + tds[
+                                              2].text.strip() + ", " + tds[3].text.strip()[0: tds[3].text.strip().find("%")]
+                                          + ",'" + tds[4].text.strip() + "','" + tds[5].text.strip() + "',' "
+                                          + tds[6].text.strip() + "')")
 
 
 spiderEsatMoney()

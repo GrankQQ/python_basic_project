@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78e258d3-7271-4423-9f48-48de9d98ea19" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/venv/Include/execle_operator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/venv/Include/spider_eastmoney.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/mysql_operator.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/mysql_operator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/Include/spider.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/spider.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/Include/spider_eastmoney.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/Include/spider_eastmoney.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/python_spider$spider_eastmoney.coverage" NAME="spider_eastmoney Coverage Results" MODIFIED="1553248797709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
+    <SUITE FILE_PATH="coverage/python_spider$spider_eastmoney.coverage" NAME="spider_eastmoney Coverage Results" MODIFIED="1553830721678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/python_spider$mysql_operator.coverage" NAME="mysql_operator Coverage Results" MODIFIED="1551952090136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
     <SUITE FILE_PATH="coverage/untitled$spider.coverage" NAME="spider Coverage Results" MODIFIED="1551780523044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/venv/Include" />
   </component>
@@ -24,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/venv/Include/spider_eastmoney.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+            <state relative-caret-position="286">
+              <caret line="89" column="49" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="49" />
               <folding>
                 <element signature="e#17#72#0" expanded="true" />
               </folding>
@@ -34,10 +31,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/Include/mysql_operator.py">
+        <entry file="file://$PROJECT_DIR$/venv/Include/spider.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
+            <state relative-caret-position="431">
+              <caret line="74" column="21" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="21" />
+              <folding>
+                <element signature="e#17#72#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -117,6 +117,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>int</find>
+      <find>x</find>
+      <find>getData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,6 +146,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -166,7 +169,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,12 +282,13 @@
       <workItem from="1552005749660" duration="1193000" />
       <workItem from="1552959082086" duration="1107000" />
       <workItem from="1553149912090" duration="10106000" />
-      <workItem from="1553217370896" duration="6064000" />
+      <workItem from="1553217370896" duration="6450000" />
+      <workItem from="1553827638741" duration="5347000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34629000" />
+    <option name="totallyTimeSpent" value="40362000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -298,15 +301,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="43" width="1936" height="1216" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21215352" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21428572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.1846722" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.52816254" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.52816254" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32933578" />
@@ -336,13 +338,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/venv/Include/spider_eastmoney.py</url>
-          <line>144</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/venv/Include/spider_eastmoney.py</url>
-          <line>117</line>
-          <option name="timeStamp" value="23" />
+          <line>165</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -350,15 +347,27 @@
       <configuration name="PythonConfigurationType">
         <watch expression="driver.find_elements_by_css_selector(&quot;.fund_item .quotationItem_DataTable .popTab&quot;)" language="Python" />
         <watch expression="driver.find_elements_by_class_name(&quot;num_box&quot;)" language="Python" />
-        <watch expression="driver.find_element_by_xpath(&quot;//*[@class='fund_item quotationItem_DataTable popTab']&quot;)" language="Python" />
-        <watch expression="driver.find_element_by_xpath(&quot;//*[@class='fund_item quotationItem_DataTable popTab']&quot;).find_element_by_class_name(&quot;item_more&quot;)" language="Python" />
-        <watch expression="more.get_attribute(&quot;href&quot;)" language="Python" />
-        <watch expression="more.click()" language="Python" />
+        <watch expression="driver.find_elements_by_xpath(         &quot;//*[@class='fund_item quotationItem_DataTable popTab']&quot;)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>xpath.text.find(&quot;净值&quot;)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>xpath.text</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>driver.find_elements_by_xpath(         &quot;//*[@class='fund_item quotationItem_DataTable popTab']&quot;)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>more.click()</expression-string>
         <language-id>Python</language-id>
@@ -391,16 +400,6 @@
       </expression>
       <expression>
         <expression-string>driver.find_element_by_xpath(&quot;//*[@class='action-btn cancel alert-display']&quot;)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.find_elements_by_class_name(&quot;num_box&quot;)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>driver.find_element_by_id(&quot;Div2&quot;)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -445,13 +444,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Include/spider.py">
+    <entry file="file://$PROJECT_DIR$/venv/Include/mysql_operator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="73" column="6" selection-start-line="73" selection-start-column="6" selection-end-line="73" selection-end-column="6" />
-          <folding>
-            <element signature="e#17#72#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="722">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
     </entry>
@@ -504,24 +500,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Program Files/Python/Python37/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
+    <entry file="file://$PROJECT_DIR$/venv/Include/spider.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="241" selection-start-line="241" selection-end-line="241" />
+        <state relative-caret-position="431">
+          <caret line="74" column="21" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="21" />
+          <folding>
+            <element signature="e#17#72#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/Include/mysql_operator.py">
+    <entry file="file://C:/Program Files/Python/Python37/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        <state relative-caret-position="1622">
+          <caret line="239" column="52" selection-start-line="239" selection-start-column="52" selection-end-line="239" selection-end-column="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/Include/spider_eastmoney.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+        <state relative-caret-position="286">
+          <caret line="89" column="49" selection-start-line="89" selection-start-column="11" selection-end-line="89" selection-end-column="49" />
           <folding>
             <element signature="e#17#72#0" expanded="true" />
           </folding>
